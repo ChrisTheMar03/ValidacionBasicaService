@@ -1,0 +1,14 @@
+.error{
+    font-size: 11px;
+    color: tomato;
+}
+
+/**Tendra este color una vez se haya salido del foco, de lo contrario no   */
+input.ng-invalid.ng-touched{
+    border: 1px solid red;
+}
+
+/* input.ng-valid.ng-touched{
+    border: 1px solid green;
+}    */
+

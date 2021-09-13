@@ -1,0 +1,81 @@
+
+<h1 class="text-center mt-3">Formulario Registro de Empleados</h1>
+
+
+    <form [formGroup]="formularioEmpleado" (ngSubmit)='onSubmit()'>
+        <div class="form-group">
+            <label for="">Nombre</label>
+            <input type="text" formControlName="nombre" class="form-control">
+            <span class="error" *ngIf="formularioEmpleado.controls.nombre.errors?.required && formularioEmpleado.controls.nombre.touched">
+                El campo nombre es requerido
+            </span>
+            <span class="error" *ngIf="formularioEmpleado.controls.nombre.errors?.minlength && formularioEmpleado.controls.nombre.touched">
+                Nombre debe ser mayor a {{formularioEmpleado.controls.nombre.errors?.minlength.requiredLength}} caracteres 
+            </span>
+        </div>
+        <div class="form-group">
+            <label for="">Apellidos</label>
+            <input type="text" formControlName="apellidos" class="form-control">
+            <span class="error" *ngIf="formularioEmpleado.controls.apellidos.errors?.required && formularioEmpleado.controls.apellidos.touched">
+                El campo es requerido
+            </span>
+            <span class="error" *ngIf="formularioEmpleado.controls.apellidos.errors?.minlength && formularioEmpleado.controls.apellidos.touched">
+                Nombre debe ser mayor a {{formularioEmpleado.controls.apellidos.errors?.minlength.requiredLength}} caracteres 
+            </span>
+            
+        </div>
+        <div class="form-group">
+            <label for="">Email</label>
+            <input type="text" formControlName="email" class="form-control">
+            <span class="error" *ngIf="formularioEmpleado.controls.email.errors?.required && formularioEmpleado.controls.email.touched">
+                El campo es requerido
+            </span>
+            <span class="error" *ngIf="formularioEmpleado.controls.email.errors?.pattern && formularioEmpleado.controls.email.touched">
+                Ingrese correo valido
+            </span>
+        </div>
+        <div class="form-group">
+            <label for="">Edad</label>
+            <input type="text" formControlName="edad" class="form-control">
+            <span class="error" *ngIf="formularioEmpleado.controls.edad.errors?.required && formularioEmpleado.controls.edad.touched">
+                El campo es requerido
+            </span>
+            <span class="error" *ngIf="formularioEmpleado.controls.edad.errors?.min && formularioEmpleado.controls.edad.touched">
+                Debe ser mayor de edad
+            </span>
+        </div>
+        <div class="form-group">
+            <label for="">Departamento</label>
+            <select class="form-control" formControlName="departamento">
+                <option value="informatica">Informatica</option>
+                <option value="marketing">Marketing</option>
+                <option value="contabilidad">Contabilidad</option>
+            </select>
+            <span class="error" *ngIf="formularioEmpleado.controls.departamento.errors?.required && formularioEmpleado.controls.departamento.touched">
+                El departamento es requerido
+            </span>
+        </div>
+        <div class="form-group">
+            <label for="">Password</label>
+            <input type="password" class="form-control" formControlName="password">
+            <span class="error" *ngIf="formularioEmpleado.controls.password.errors?.required && formularioEmpleado.controls.password.touched">
+                La contraseña es requerida
+            </span>
+            <span class="error" *ngIf="formularioEmpleado.controls.password.errors?.minlength && formularioEmpleado.controls.password.touched">
+                Contraseña muy corta
+            </span>
+        </div>
+        <div class="form-group">
+            <label for="">Imagen</label>
+            <input type="text" class="form-control" formControlName="imagen">
+            <span class="error" *ngIf="formularioEmpleado.controls.imagen.errors?.required && formularioEmpleado.controls.imagen.touched">
+                Imagen es requerida               
+            </span>
+        </div>
+        <input type="submit" value="Enviar" class="btn btn-block btn-outline-success mt-3" [disabled]='!formularioEmpleado.valid'>
+    </form>
+
+    
+
+
+
